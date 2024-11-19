@@ -1,11 +1,13 @@
-version: '3.3'
 name: latex-docker
 
 services:
   texlive:
     container_name: latex-docker-texlive
-    image: texlive/texlive:latest
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
     volumes:
       - ./:/workdir
     tty: true
     restart: always
+
